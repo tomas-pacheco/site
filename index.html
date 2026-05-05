@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Martín A. Reyes — Ph.D. Candidate in Economics at the University of Illinois Urbana-Champaign." />
+  <title>Martín A. Reyes</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    /* ── UIUC Colors ── */
+    :root {
+      --orange:       #FF5F05;
+      --orange-light: #fff1e8;
+      --orange-dark:  #cc4a00;
+      --navy:         #13294B;
+      --navy-light:   #e8edf4;
+      --text:         #1a1a1a;
+      --text-muted:   #555;
+      --border:       #e0e0e0;
+      --bg:           #ffffff;
+      --bg-soft:      #fafafa;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      font-size: 15px;
+      line-height: 1.7;
+    }
+
+    a { color: var(--orange); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--navy);
+      padding: 0 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 56px;
+    }
+
+    .nav-name {
+      font-family: 'Lora', serif;
+      font-size: 16px;
+      color: #fff;
+      letter-spacing: -0.2px;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 2rem;
+    }
+
+    .nav-links a {
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.75);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--orange); }
+
+    /* ── LAYOUT ── */
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 2rem 5rem;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      display: grid;
+      grid-template-columns: 1fr 160px;
+      gap: 3rem;
+      align-items: start;
+      padding: 3.5rem 0 3rem;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 3.5rem;
+    }
+
+    .hero-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--orange-dark);
+      background: var(--orange-light);
+      padding: 4px 12px;
+      border-radius: 20px;
+      margin-bottom: 1.1rem;
+    }
+
+    h1 {
+      font-family: 'Lora', serif;
+      font-size: 34px;
+      font-weight: 500;
+      line-height: 1.2;
+      letter-spacing: -0.5px;
+      color: var(--navy);
+      margin-bottom: 0.4rem;
+    }
+
+    .hero-role {
+      font-size: 14px;
+      color: var(--text-muted);
+      margin-bottom: 1.25rem;
+    }
+
+    .hero-role a {
+      color: var(--navy);
+      font-weight: 500;
+    }
+
+    .hero-role a:hover { color: var(--orange); text-decoration: none; }
+
+    .hero-bio {
+      font-size: 14.5px;
+      color: var(--text-muted);
+      line-height: 1.8;
+      margin-bottom: 1.75rem;
+      max-width: 520px;
+    }
+
+    .hero-links {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      font-size: 12px;
+      font-weight: 500;
+      padding: 7px 16px;
+      border-radius: 20px;
+      border: 1px solid var(--border);
+      color: var(--text);
+      text-decoration: none;
+      transition: all 0.18s;
+      cursor: pointer;
+      background: var(--bg);
+    }
+
+    .btn:hover {
+      border-color: var(--orange);
+      color: var(--orange);
+      text-decoration: none;
+    }
+
+    .btn-primary {
+      background: var(--orange);
+      color: #fff;
+      border-color: var(--orange);
+    }
+
+    .btn-primary:hover {
+      background: var(--orange-dark);
+      border-color: var(--orange-dark);
+      color: #fff;
+    }
+
+    /* ── AVATAR ── */
+    .avatar {
+      width: 145px;
+      height: 145px;
+      border-radius: 10px;
+      background: var(--navy);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Lora', serif;
+      font-style: italic;
+      font-size: 44px;
+      color: var(--orange);
+      flex-shrink: 0;
+    }
+
+    /* ── SECTIONS ── */
+    section {
+      margin-bottom: 3.5rem;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 2rem;
+    }
+
+    .section-label {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--orange);
+      white-space: nowrap;
+    }
+
+    .section-line {
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+
+    /* ── PAPER CARDS ── */
+    .paper {
+      padding: 1.4rem 1.6rem;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      margin-bottom: 1rem;
+      background: var(--bg);
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+
+    .paper:hover {
+      border-color: var(--orange);
+      box-shadow: 0 2px 12px rgba(255,95,5,0.07);
+    }
+
+    .paper-badge {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.6px;
+      text-transform: uppercase;
+      padding: 3px 10px;
+      border-radius: 20px;
+      margin-bottom: 0.7rem;
+    }
+
+    .badge-jmp   { background: var(--orange-light); color: var(--orange-dark); }
+    .badge-wp    { background: var(--navy-light);   color: var(--navy); }
+    .badge-wip   { background: #f5f5f5;             color: #777; }
+
+    .paper-title {
+      font-family: 'Lora', serif;
+      font-size: 16px;
+      font-weight: 500;
+      color: var(--navy);
+      line-height: 1.4;
+      margin-bottom: 0.5rem;
+    }
+
+    .paper-authors {
+      font-size: 13px;
+      color: var(--text-muted);
+      font-style: italic;
+      margin-bottom: 0.75rem;
+    }
+
+    .paper-abstract {
+      font-size: 13.5px;
+      color: var(--text-muted);
+      line-height: 1.75;
+      margin-bottom: 0.9rem;
+    }
+
+    .paper-links {
+      display: flex;
+      gap: 14px;
+    }
+
+    .paper-link {
+      font-size: 12.5px;
+      color: var(--orange);
+      font-weight: 500;
+      text-decoration: none;
+    }
+
+    .paper-link:hover { text-decoration: underline; }
+
+    /* ── TEACHING ── */
+    .course-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1rem;
+    }
+
+    .course-card {
+      padding: 1.2rem 1.4rem;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      background: var(--bg-soft);
+      transition: border-color 0.2s;
+    }
+
+    .course-card:hover { border-color: var(--orange); }
+
+    .course-code {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      color: var(--orange);
+      margin-bottom: 0.35rem;
+    }
+
+    .course-name {
+      font-family: 'Lora', serif;
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--navy);
+      margin-bottom: 0.3rem;
+      line-height: 1.3;
+    }
+
+    .course-meta {
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    /* ── CONTACT ── */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    .contact-card {
+      padding: 1.1rem 1.4rem;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      background: var(--bg-soft);
+    }
+
+    .contact-label {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 0.3rem;
+    }
+
+    .contact-value {
+      font-size: 14px;
+      color: var(--text);
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding-top: 1.5rem;
+      margin-top: 1rem;
+      font-size: 12px;
+      color: var(--text-muted);
+      display: flex;
+      justify-content: space-between;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 600px) {
+      .hero {
+        grid-template-columns: 1fr;
+      }
+      .avatar { display: none; }
+      .contact-grid { grid-template-columns: 1fr; }
+      nav { padding: 0 1rem; }
+      .nav-links { gap: 1.2rem; }
+      .container { padding: 0 1.2rem 4rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVIGATION -->
+  <nav>
+    <span class="nav-name">Martín A. Reyes</span>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#research">Research</a></li>
+      <li><a href="#teaching">Teaching</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <div class="container">
+
+    <!-- HERO / ABOUT -->
+    <section id="about">
+      <div class="hero">
+        <div>
+          <span class="hero-tag">Ph.D. Candidate · Economics</span>
+          <h1>Martín A. Reyes</h1>
+          <p class="hero-role">
+            Ph.D. Student in Economics ·
+            <a href="https://illinois.edu" target="_blank">University of Illinois Urbana-Champaign</a>
+          </p>
+          <p class="hero-bio">
+            I am a Ph.D. candidate in Economics at the University of Illinois Urbana-Champaign.
+            My research focuses on labor economics, inequality, and human capital formation.
+            I am particularly interested in how early-life conditions shape long-run outcomes
+            and the role of institutions in mediating these effects.
+          </p>
+          <p class="hero-bio">
+            Prior to joining Illinois, I completed my undergraduate studies at Universidad
+            Nacional de Buenos Aires and worked as a research assistant at the Inter-American
+            Development Bank.
+          </p>
+          <div class="hero-links">
+            <a class="btn btn-primary" href="uploads/cv.pdf" target="_blank">Download CV</a>
+            <a class="btn" href="https://scholar.google.com" target="_blank">Google Scholar</a>
+            <a class="btn" href="https://github.com" target="_blank">GitHub</a>
+            <a class="btn" href="mailto:reyes@illinois.edu">Email</a>
+          </div>
+        </div>
+        <div>
+          <!-- Replace this div with an <img> tag once you have a photo:
+               <img src="img/photo.jpg" alt="Martín A. Reyes" style="width:145px;height:145px;border-radius:10px;object-fit:cover;" />
+          -->
+          <div class="avatar">MR</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- RESEARCH -->
+    <section id="research">
+      <div class="section-header">
+        <span class="section-label">Research</span>
+        <div class="section-line"></div>
+      </div>
+
+      <!-- Job Market Paper -->
+      <div class="paper">
+        <span class="paper-badge badge-jmp">Job Market Paper</span>
+        <p class="paper-title">
+          Early Childhood Nutrition and Long-Run Labor Market Outcomes: Evidence from Argentina
+        </p>
+        <p class="paper-abstract">
+          This paper estimates the causal effect of a large-scale nutrition program on the labor
+          market trajectories of exposed children. Using administrative data linked to tax records,
+          I document significant improvements in earnings and employment stability among treated
+          individuals 20 years after exposure. Effects are largest for children in the bottom
+          quartile of the income distribution.
+        </p>
+        <div class="paper-links">
+          <a class="paper-link" href="uploads/jmp.pdf" target="_blank">Paper (PDF)</a>
+          <a class="paper-link" href="uploads/slides_jmp.pdf" target="_blank">Slides</a>
+        </div>
+      </div>
+
+      <!-- Working Paper -->
+      <div class="paper">
+        <span class="paper-badge badge-wp">Working Paper</span>
+        <p class="paper-title">
+          Teacher Sorting, School Quality, and Student Achievement in Developing Countries
+        </p>
+        <p class="paper-authors">with Valentina Suárez and Diego Herrera</p>
+        <p class="paper-abstract">
+          We study how teacher sorting across schools affects student achievement gaps. Using a
+          natural experiment induced by a nationwide teacher reassignment policy in Chile, we
+          identify the causal contribution of teacher quality to inequality in educational outcomes.
+          Our results suggest that reducing teacher sorting could close up to 15% of the
+          achievement gap between high- and low-income students.
+        </p>
+        <div class="paper-links">
+          <a class="paper-link" href="uploads/paper2.pdf" target="_blank">Paper (PDF)</a>
+        </div>
+      </div>
+
+      <!-- Work in Progress -->
+      <div class="paper">
+        <span class="paper-badge badge-wip">Work in Progress</span>
+        <p class="paper-title">
+          Informal Employment and Social Insurance Take-Up
+        </p>
+        <p class="paper-authors">with Camila Moreno</p>
+        <p class="paper-abstract">
+          We examine the relationship between informality and social insurance enrollment using
+          novel survey data from Mexico. Preliminary findings suggest significant heterogeneity
+          in take-up rates driven by information frictions and employer incentives.
+        </p>
+      </div>
+    </section>
+
+    <!-- TEACHING -->
+    <section id="teaching">
+      <div class="section-header">
+        <span class="section-label">Teaching</span>
+        <div class="section-line"></div>
+      </div>
+
+      <div class="course-grid">
+        <div class="course-card">
+          <p class="course-code">ECON 490 · Spring 2026</p>
+          <p class="course-name">Labor Economics</p>
+          <p class="course-meta">Teaching Assistant · UIUC</p>
+        </div>
+        <div class="course-card">
+          <p class="course-code">ECON 302 · Fall 2025</p>
+          <p class="course-name">Intermediate Microeconomics</p>
+          <p class="course-meta">Teaching Assistant · UIUC</p>
+        </div>
+        <div class="course-card">
+          <p class="course-code">ECON 103 · Spring 2025</p>
+          <p class="course-name">Principles of Economics</p>
+          <p class="course-meta">Instructor · UIUC</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <div class="section-header">
+        <span class="section-label">Contact</span>
+        <div class="section-line"></div>
+      </div>
+
+      <div class="contact-grid">
+        <div class="contact-card">
+          <p class="contact-label">Email</p>
+          <p class="contact-value">
+            <a href="mailto:reyes@illinois.edu">reyes@illinois.edu</a>
+          </p>
+        </div>
+        <div class="contact-card">
+          <p class="contact-label">Office</p>
+          <p class="contact-value">David Kinley Hall, Room 214</p>
+        </div>
+        <div class="contact-card">
+          <p class="contact-label">Address</p>
+          <p class="contact-value">1407 W Gregory Dr, Urbana, IL 61801</p>
+        </div>
+        <div class="contact-card">
+          <p class="contact-label">Office Hours</p>
+          <p class="contact-value">Thursdays 2–4 PM (by appointment)</p>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <span>© 2026 Martín A. Reyes</span>
+      <span>Last updated: May 2026</span>
+    </footer>
+
+  </div>
+</body>
+</html>
